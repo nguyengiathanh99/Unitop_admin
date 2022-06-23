@@ -1,0 +1,23 @@
+.course-img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.fileImage {
+    position: absolute;
+    left: 92px;
+    top: 165px;
+    color: rgba(228, 226, 226, 0.9);
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#image {
+    width: 100%;
+    height: 100%;
+}
+
+#myFile {
+    display: none;
+}
