@@ -4,12 +4,13 @@
 		<script>
 		  $.widget.bridge('uibutton', $.ui.button);
 		</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<!-- Bootstrap 3.3.7 -->
 		<script src="{{ asset('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 		<!-- Morris.js charts -->
 		<script src="{{ asset('assets/adminlte/bower_components/raphael/raphael.min.js') }}"></script>
 		<script src="{{ asset('assets/adminlte/bower_components/morris.js/morris.min.js') }}"></script>
-		<script src="{{ asset('assets/adminlte/bower_components/chart.js/Chart.js') }}"></script>
+{{--		<script src="{{ asset('assets/adminlte/bower_components/chart.js/Chart.js') }}"></script>--}}
 		<!-- Sparkline -->
 		<script src="{{ asset('assets/adminlte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
 		<!-- jvectormap -->
@@ -38,13 +39,12 @@
 		<!-- Select2 -->
 		<script src="{{ asset('assets/adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 		<!-- Mask -->
-		
-		<script type="text/javascript"> 
+		<script type="text/javascript">
 	      $(document).ready( function() {
 	        $('#flash_message').delay(3000).fadeOut();
 	      });
 	    </script>
 
-		
+
 
 		@yield('layout_js')
