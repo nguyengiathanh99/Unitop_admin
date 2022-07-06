@@ -34,10 +34,11 @@ class DashboardController extends Controller
             'userCourse' => $countUserCourse,
         ];
 
-        $groupCourses = Course::query()->join('user_courses', 'courses.id', '=', 'user_courses.course_id')
-            ->select(DB::raw("count(*) as userTotal"), 'course_id', 'name')
-            ->groupBy("course_id")
+        $groupCourses = Course::query()->leftJoin('user_courses', 'courses.id', '=', 'user_courses.course_id')
+            ->select('name', DB::raw("count(*) as userTotal"))
+            ->groupBy("name")
             ->get();
+//        dd($groupCourses);
 
         $chartCourse['labels'] = [];
         $chartCourse['data'] = [];
@@ -52,6 +53,7 @@ class DashboardController extends Controller
                 $chartCourse['borderColor'][] = $this->bm_random_rgb();
             }
         }
+//        dd($chartCourse);
 
         return view('home', compact('statistical', 'chartCourse'));
     }

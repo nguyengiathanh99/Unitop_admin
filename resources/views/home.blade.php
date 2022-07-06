@@ -85,12 +85,12 @@
         let massPopChart = new Chart(myChart, {
             type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
             data: {
-                labels: {{ json_encode($chartCourse['labels']) }},
+                labels: @json($chartCourse['labels']),
                 datasets: [{
                     label: '# of Votes',
-                    data: {{ json_encode($chartCourse['data']) }},
-                    backgroundColor: {{ json_encode($chartCourse['backgroundColor']) }},
-                    borderColor: {{ json_encode($chartCourse['borderColor']) }},
+                    data: @json($chartCourse['data']),
+                    backgroundColor: @json($chartCourse['backgroundColor']),
+                    borderColor: @json($chartCourse['borderColor']),
                     borderWidth: 1
                 }]
             },
