@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Member;
 use App\Models\User;
 use App\Models\UserCourse;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $countUser = User::query()->count();
+        $countUser = Member::query()->count();
         $countCourse = Course::query()->count();
         $countUserCourse = UserCourse::query()->count();
 
@@ -53,7 +54,6 @@ class DashboardController extends Controller
                 $chartCourse['borderColor'][] = $this->bm_random_rgb();
             }
         }
-//        dd($chartCourse);
 
         return view('home', compact('statistical', 'chartCourse'));
     }

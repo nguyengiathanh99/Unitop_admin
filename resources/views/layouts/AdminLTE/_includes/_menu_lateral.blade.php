@@ -21,46 +21,29 @@
 				{{ Request::segment(1) === 'user' ? 'active menu-open' : null }}
 				{{ Request::segment(1) === 'role' ? 'active menu-open' : null }}
 				">
-				<a href="#">
-					<i class="fa fa-gear"></i>
-					<span>SETTINGS</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-				<ul class="treeview-menu">
-					@if (Auth::user()->can('root-dev', ''))
-						<li class="{{ Request::segment(1) === 'config' && Request::segment(2) === null ? 'active' : null }}">
-							<a href="{{ route('config') }}" title="App Config">
-								<i class="fa fa-gear"></i> <span> Settings App</span>
-							</a>
-						</li>
-					@endif
-					<li class="
+            <li class="
 						{{ Request::segment(1) === 'user' ? 'active' : null }}
-						{{ Request::segment(1) === 'role' ? 'active' : null }}
-						">
-						<a href="{{ route('user') }}" title="Users">
-							<i class="fa fa-user"></i> <span>Admin</span>
-						</a>
-                        <a href="" title="Users">
-							<i class="fa fa-users"></i> <span>Users</span>
-						</a>
-                        <a href="{{ route('course.index') }}" title="Course">
-                            <i class="fa fa-book"></i><span>Courses</span>
-                        </a>
-                        <a href="{{ route('tag.index') }}" title="Tags">
-                            <i class="fa fa-tags"></i><span>Tags</span>
-                        </a>
-                        <a href="{{ route('lesson.home') }}" title="Lessons">
-                            <i class="fa fa-book"></i><span>Lessons</span>
-                        </a>
-                        <a href="{{ route('document.index') }}" title="Documents">
-                            <i class="fa fa-file"></i><span>Documents</span>
-                        </a>
-					</li>
-				</ul>
-			</li>
-		</ul>
+            {{ Request::segment(1) === 'role' ? 'active' : null }}
+                ">
+                <a href="{{ route('user') }}" title="Users">
+                    <i class="fa fa-user"></i> <span>Admin</span>
+                </a>
+                <a href="" title="Users">
+                    <i class="fa fa-users"></i> <span>Users</span>
+                </a>
+                <a href="{{ route('course.index') }}" title="Course">
+                    <i class="fa fa-book"></i><span>Courses</span>
+                </a>
+                <a href="{{ route('tag.index') }}" title="Tags">
+                    <i class="fa fa-tags"></i><span>Tags</span>
+                </a>
+                <a href="{{ route('lesson.home') }}" title="Lessons">
+                    <i class="fa fa-book"></i><span>Lessons</span>
+                </a>
+                <a href="{{ route('document.index') }}" title="Documents">
+                    <i class="fa fa-file"></i><span>Documents</span>
+                </a>
+            </li>
+        </ul>
 	</section>
 </aside>
