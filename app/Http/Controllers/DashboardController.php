@@ -20,14 +20,18 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
 
     public function index()
     {
-        $countUser = Member::query()->count();
-        $countCourse = Course::query()->count();
-        $countUserCourse = UserCourse::query()->count();
+        $groupCourses = Course::query()->get();
+        $courseUsers = UserCourse::query()->get();
+        $userCourseIds = $groupCourses->pluck('id')->toArray();
+        $countUser = User::query()->count();
+        $countCourse = $groupCourses->count();
+        $countUserCourse = $courseUsers->whereIn('course_id', $userCourseIds)->count();
 
         $statistical = [
             'user' => $countUser,
@@ -35,21 +39,16 @@ class DashboardController extends Controller
             'userCourse' => $countUserCourse,
         ];
 
-        $groupCourses = Course::query()->leftJoin('user_courses', 'courses.id', '=', 'user_courses.course_id')
-            ->select('name', DB::raw("count(*) as userTotal"))
-            ->groupBy("name")
-            ->get();
-//        dd($groupCourses);
-
         $chartCourse['labels'] = [];
         $chartCourse['data'] = [];
         $chartCourse['backgroundColor'] = [];
         $chartCourse['borderColor'] = [];
         if ($groupCourses->isNotEmpty()) {
             foreach ($groupCourses as $course) {
-                $randRgbaColor = 'rgba(201, 203, 207, 0.2)';
+                $count = $courseUsers->where('course_id', $course->id)->count();
+                $randRgbaColor = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 0.2)';
                 $chartCourse['labels'][] = $course->name;
-                $chartCourse['data'][] = $course->userTotal ?? 0;
+                $chartCourse['data'][] = $count ?? 0;
                 $chartCourse['backgroundColor'][] = $randRgbaColor;
                 $chartCourse['borderColor'][] = $this->bm_random_rgb();
             }
