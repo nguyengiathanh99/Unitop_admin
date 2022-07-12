@@ -24,6 +24,20 @@
                         <input type="hidden" name="_method" value="put">
                         <div class="row">
                             <div class="col-lg-12">
+                                <div class="form-group {{ $errors->has('course_id') ? 'has-error' : '' }}">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-auto my-1">
+                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Course_id</label>
+                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 100%" name="course_id">
+                                                @foreach($courses as $course)
+                                                    <option value="{{ $course->id }}" {{ $lesson->course_id == $course->id ? 'selected' : '' }}>{{ $course->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     <label for="nome">Name</label>
                                     <input type="text" name="name" class="form-control" maxlength="30" minlength="4"

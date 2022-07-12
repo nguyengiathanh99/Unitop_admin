@@ -5,12 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Member;
 use App\Models\Review;
-use App\Models\User;
 use App\Models\UserCourse;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use function Symfony\Component\Translation\t;
 
 class DashboardController extends Controller
 {
@@ -30,7 +25,7 @@ class DashboardController extends Controller
         $groupCourses = Course::query()->get();
         $courseUsers = UserCourse::query()->get();
         $userCourseIds = $groupCourses->pluck('id')->toArray();
-        $countUser = User::query()->count();
+        $countUser = Member::query()->count();
         $countCourse = $groupCourses->count();
         $countUserCourse = $courseUsers->whereIn('course_id', $userCourseIds)->count();
         $reviewCourses = Review::query()->get();
@@ -64,5 +59,4 @@ class DashboardController extends Controller
 
         return view('home', compact('statistical', 'chartCourse'));
     }
-
 }

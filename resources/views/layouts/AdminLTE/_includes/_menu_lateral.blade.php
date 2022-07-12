@@ -6,13 +6,13 @@
 						{{ Request::segment(1) === null ? 'active' : null }}
 						{{ Request::segment(1) === 'home' ? 'active' : null }}
 					  ">
-				<a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-dashboard"></i> <span> Dashboard</span></a>
+				<a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-dashboard"></i> <span>Tổng quan</span></a>
 			</li>
 
 			@if(Request::segment(1) === 'profile')
 
 			<li class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">
-				<a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span> PROFILE</span></a>
+				<a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span>Hồ sơ</span></a>
 			</li>
 
 			@endif
@@ -26,22 +26,22 @@
             {{ Request::segment(1) === 'role' ? 'active' : null }}
                 ">
                 <a href="{{ route('user') }}" title="Users">
-                    <i class="fa fa-user"></i> <span>Admin</span>
+                    <i class="fa fa-user"></i> <span> Quản trị viên</span>
                 </a>
-                <a href="" title="Users">
-                    <i class="fa fa-users"></i> <span>Users</span>
+                <a href="{{ route('member.index') }}" title="Users">
+                    <i class="fa fa-users"></i> <span> Người dùng</span>
                 </a>
                 <a href="{{ route('course.index') }}" title="Course">
-                    <i class="fa fa-book"></i><span>Courses</span>
+                    <i class="fa fa-book"></i><span> Khóa học</span>
                 </a>
                 <a href="{{ route('tag.index') }}" title="Tags">
-                    <i class="fa fa-tags"></i><span>Tags</span>
+                    <i class="fa fa-tags"></i><span> Nhãn dán</span>
                 </a>
                 <a href="{{ route('lesson.home') }}" title="Lessons">
-                    <i class="fa fa-book"></i><span>Lessons</span>
+                    <i class="fa fa-book"></i><span> Bài học</span>
                 </a>
                 <a href="{{ route('document.index') }}" title="Documents">
-                    <i class="fa fa-file"></i><span>Documents</span>
+                    <i class="fa fa-file"></i><span> Tài liệu</span>
                 </a>
 
                 <a href="{{ route('review.index') }}" title="Documents">

@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $lessons = Lesson::paginate(10);
-        return view('lessons.home', compact('lessons'));
+        $lessons = Lesson::search($request->all())->paginate(10);
+        return view('lessons.home', compact('lessons', 'request'));
     }
 
     public function create()

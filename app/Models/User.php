@@ -59,4 +59,12 @@ class User extends Authenticatable
         return Cache::has('user-is-online-' . $this->id);
     }
 
+    public function scopeSearch($query, $data)
+    {
+        if (isset($data['keyword'])) {
+            $query->where('name', 'LIKE', '%' . $data['keyword'] . '%')
+            ->orWhere('email', 'LIKE', '%' . $data['keyword'] . '%');
+        }
+        return $query;
+    }
 }

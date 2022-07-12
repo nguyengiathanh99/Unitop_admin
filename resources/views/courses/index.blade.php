@@ -13,6 +13,12 @@
 @endsection
 
 @section('content')
+    <form action="{{ route('course.index') }}" method="get">
+        <div class="search">
+            <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
+            <button class="">Tìm kiếm</button>
+        </div>
+    </form>
     <div class="box box-primary">
         <div class="box-body">
             <div class="row">
@@ -48,11 +54,10 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-{{--                    {{ $course->links() }}--}}
+                    {{ $courses->links() }}
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
 

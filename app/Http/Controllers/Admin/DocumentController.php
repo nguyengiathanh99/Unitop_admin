@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $docs = Document::paginate(10);
-        return view('docs.index', compact('docs'));
+        $docs = Document::search($request->all())->paginate(10);
+        return view('docs.index', compact('docs', 'request'));
     }
 
     public function create()

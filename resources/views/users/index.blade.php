@@ -2,25 +2,30 @@
 
 @section('icon_page', 'user')
 
-@section('title', 'Users')
+@section('title', 'Người dùng')
 
 @section('menu_pagina')
 
 	<li role="presentation">
 		<a href="{{ route('user.create') }}" class="link_menu_page">
-			<i class="fa fa-plus"></i> Add
+			<i class="fa fa-plus"></i> Thêm
 		</a>
 	</li>
 	<li role="presentation">
 		<a href="{{ route('role') }}" class="link_menu_page">
-			<i class="fa fa-unlock-alt"></i> Permissions
+			<i class="fa fa-unlock-alt"></i> Phân quyền
 		</a>
 	</li>
 
 @endsection
 
 @section('content')
-
+    <form action="{{ route('user') }}" method="get">
+        <div class="search">
+            <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
+            <button class="">Tìm kiếm</button>
+        </div>
+    </form>
     <div class="box box-primary">
 		<div class="box-body">
 			<div class="row">
@@ -29,11 +34,11 @@
 						<table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Name</th>
+									<th>Tên</th>
 									<th>E-mail</th>
-									<th class="text-center">Status</th>
-									<th class="text-center">Created</th>
-									<th class="text-center">Actions</th>
+									<th class="text-center">Trạng thái</th>
+									<th class="text-center">Đã tạo</th>
+									<th class="text-center">Hành động</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -51,9 +56,9 @@
 											<td>{{ $user->email }}</td>
 											<td class="text-center">
 												@if($user->active == true)
-													<span class="label label-success">Active</span>
+													<span class="label label-success">Hoạt động</span>
 												@else
-													<span class="label label-danger">Inactive</span>
+													<span class="label label-danger">Không hoạt động</span>
 												@endif
 											</td>
 											<td class="text-center">{{ $user->created_at->format('d/m/Y H:i') }}</td>
@@ -71,14 +76,14 @@
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">×</span>
 														</button>
-														<h4 class="modal-title"><i class="fa fa-warning"></i> Caution!!</h4>
+														<h4 class="modal-title"><i class="fa fa-warning"></i> Thông báo!!</h4>
 													</div>
 													<div class="modal-body">
-														<p>Do you really want to delete ({{ $user->name }}) ?</p>
+														<p>Bạn có muốn xóa ? ({{ $user->name }}) ?</p>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-														<a href="{{ route('user.destroy', $user->id) }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
+														<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Hủy</button>
+														<a href="{{ route('user.destroy', $user->id) }}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Xóa</button></a>
 													</div>
 												</div>
 											</div>
@@ -86,15 +91,6 @@
 									@endif
 								@endforeach
 							</tbody>
-							<tfoot>
-								<tr>
-									<th>Name</th>
-									<th>E-mail</th>
-									<th class="text-center">Status</th>
-									<th class="text-center">Created</th>
-									<th class="text-center">Actions</th>
-								</tr>
-							</tfoot>
 						</table>
 					</div>
 				</div>

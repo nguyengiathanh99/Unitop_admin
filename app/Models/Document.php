@@ -22,4 +22,13 @@ class Document extends Model
     {
         return $this->belongsTo(Lesson::class);
     }
+
+    public function scopeSearch($query, $data)
+    {
+        if (isset($data['keyword'])) {
+            $query->where('name', 'LIKE', '%' . $data['keyword'] . '%')
+                ->orWhere('lesson_id', 'LIKE', '%' . $data['keyword'] . '%');
+        }
+        return $query;
+    }
 }

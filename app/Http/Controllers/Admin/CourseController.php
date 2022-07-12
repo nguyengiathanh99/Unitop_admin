@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::paginate(10);
-        return view('courses.index', compact('courses'));
+        $courses = Course::search($request->all())->paginate(10);
+        return view('courses.index', compact('courses', 'request'));
     }
 
     public function create()

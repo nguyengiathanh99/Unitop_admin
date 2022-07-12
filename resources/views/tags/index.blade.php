@@ -13,6 +13,12 @@
 @endsection
 
 @section('content')
+    <form action="{{ route('tag.index') }}" method="get">
+        <div class="search">
+            <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
+            <button class="">Tìm kiếm</button>
+        </div>
+    </form>
     <div class="box box-primary">
         <div class="box-body">
             <div class="row">
@@ -21,6 +27,7 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>Course_id</th>
                                 <th>Name</th>
                                 <th>Link</th>
                                 <th class="text-center">Created</th>
@@ -31,6 +38,7 @@
                             @if (!empty($tags))
                                 @foreach ($tags as $tag)
                                     <tr>
+                                        <td>{{ $tag->course_id }}</td>
                                         <td>{{ $tag->name }}</td>
                                         <td>{{ $tag->link }}</td>
                                         <td class="text-center">{{ $tag->created_at }}</td>
@@ -46,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-{{--                    {{ $course->links() }}--}}
+                    {{ $tags->links() }}
                 </div>
             </div>
         </div>

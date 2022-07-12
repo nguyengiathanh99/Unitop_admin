@@ -2,13 +2,13 @@
 
 @section('icon_page', 'plus')
 
-@section('title', 'Add User')
+@section('title', 'Thêm quản trị')
 
 @section('menu_pagina')
 
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
-			<i class="fa fa-user"></i> Users
+			<i class="fa fa-user"></i> Quản trị
 		</a>
 	</li>
 
@@ -19,14 +19,14 @@
     <div class="box box-primary">
 		<div class="box-body">
 			<div class="row">
-				<div class="col-md-12">	
+				<div class="col-md-12">
 					 <form action="{{ route('user.store') }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="active" value="1">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                    <label for="nome">Name</label>
+                                    <label for="nome">Tên</label>
                                     <input type="text" name="name" class="form-control" maxlength="30" minlength="4" placeholder="Name" required="" value="{{ old('name') }}" autofocus>
                                     @if($errors->has('name'))
                                         <span class="help-block">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-                                    <label for="nome">Password</label>
+                                    <label for="nome">Mật khẩu</label>
                                     <input type="password" name="password" class="form-control" placeholder="Password" minlength="6" required="">
                                     @if($errors->has('password'))
                                         <span class="help-block">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group {{ $errors->has('password-confirm') ? 'has-error' : '' }}">
-                                    <label for="nome">Confirm Password</label>
+                                    <label for="nome">Xác nhận mật khẩu</label>
                                     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" minlength="6" required="">
                                     @if($errors->has('password-confirm'))
                                         <span class="help-block">
@@ -70,12 +70,12 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('roles') ? 'has-error' : '' }}">
-                                    <label for="nome">Permission Group</label>
+                                    <label for="nome">Nhóm quyền</label>
                                     <select name="roles[]" class="form-control select2" multiple="multiple" data-placeholder="Permission Group" required="">
                                         @foreach($roles as $role)
-                                            @if($role->id != 1)                                            
-                                                <option value="{{ $role->id}}"> {{ $role->name}} </option>  
-                                            @endif      
+                                            @if($role->id != 1)
+                                                <option value="{{ $role->id}}"> {{ $role->name}} </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                     @if($errors->has('roles'))
@@ -85,7 +85,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-lg-6"></div> 
+                            <div class="col-lg-6"></div>
                             <div class="col-lg-6">
                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-plus"></i> Add</button>
                             </div>
@@ -94,22 +94,22 @@
 				</div>
 			</div>
 		</div>
-	</div>    
+	</div>
 
 @endsection
 
 @section('layout_js')
-    
-    <script> 
-        $(function(){             
+
+    <script>
+        $(function(){
             $('.select2').select2({
                 "language": {
                     "noResults": function(){
                         return "Nenhum registro encontrado.";
                     }
                 }
-            }); 
-        }); 
+            });
+        });
 
     </script>
 

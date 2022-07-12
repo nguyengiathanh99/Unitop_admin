@@ -24,4 +24,13 @@ class Lesson extends Model
     {
         return $this->hasMany(Document::class, 'lesson_id');
     }
+
+    public function scopeSearch($query, $data)
+    {
+        if (isset($data['keyword'])) {
+            $query->where('name', 'LIKE', '%' . $data['keyword'] . '%')
+            ->orWhere('course_id', 'LIKE', '%' . $data['keyword'] . '%');
+        }
+        return $query;
+    }
 }

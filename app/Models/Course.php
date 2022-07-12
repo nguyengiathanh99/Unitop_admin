@@ -21,4 +21,18 @@ class Course extends Model
     {
         return $this->hasMany(Lesson::class, 'course_id');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'course_tags', 'course_id', 'tag_id');
+    }
+
+
+    public function scopeSearch($query, $data)
+    {
+        if (isset($data['keyword'])) {
+            $query->where('name', 'LIKE', '%' . $data['keyword'] . '%');
+        }
+        return $query;
+    }
 }
