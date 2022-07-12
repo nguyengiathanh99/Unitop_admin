@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Models\Role;
+use App\Http\Controllers\Admin\ReviewController;
 
 Auth::routes();
 
@@ -83,3 +84,9 @@ Route::post('/document/store', [DocumentController::class, 'store'])->name('docu
 Route::get('/document/edit/{id}', [DocumentController::class, 'edit'])->name('document.edit');
 Route::put('/document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
 Route::get('/document/destroy/{id}', [DocumentController::class, 'destroy'])->name('document.destroy');
+
+
+Route::group(['prefix' => 'reviews'], function () {
+    Route::get('', [ReviewController::class, 'index'])->name('review.index');
+    Route::get('{id}/status', [ReviewController::class, 'changeStatus'])->name('review.change-status');
+});
