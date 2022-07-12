@@ -43,6 +43,10 @@
                 <a href="{{ route('document.index') }}" title="Documents">
                     <i class="fa fa-file"></i><span>Documents</span>
                 </a>
+
+                <a href="{{ route('review.index') }}" title="Documents">
+                    <i class="fa fa-file"></i><span>Review</span>
+                </a>
             </li>
         </ul>
 	</section>
