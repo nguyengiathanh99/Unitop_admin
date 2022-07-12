@@ -87,12 +87,19 @@
             data: {
                 labels: @json($chartCourse['labels']),
                 datasets: [{
-                    label: '# of Votes',
-                    data: @json($chartCourse['data']),
-                    backgroundColor: @json($chartCourse['backgroundColor']),
-                    borderColor: @json($chartCourse['borderColor']),
+                    label: 'Courses',
+                    data: @json($chartCourse['data']['courses']),
+                    backgroundColor: @json($chartCourse['backgroundColor']['courses']),
+                    borderColor: @json($chartCourse['borderColor']['courses']),
                     borderWidth: 1
-                }]
+                },
+                    {
+                        label: 'Review',
+                        data: @json($chartCourse['data']['review']),
+                        backgroundColor: @json($chartCourse['backgroundColor']['review']),
+                        borderColor: @json($chartCourse['borderColor']['review']),
+                        borderWidth: 1
+                    }]
             },
             options: {
                 scales: {
