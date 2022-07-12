@@ -21,6 +21,7 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>Course</th>
                                 <th>Name</th>
                                 <th>Link</th>
                                 <th class="text-center">Created</th>
@@ -31,6 +32,14 @@
                                 <form action="{{ route('tag.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Course_id</label>
+                                            <select class="js-example-basic-single" name="state" style="width: 100%">
+                                                @foreach($courses as $course)
+                                                    <option  value="{{ $course->id }}">{{ $course->name }}</option>
+                                                @endforeach>
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label for="name">Name</label>
                                             <input type="text" class="form-control" id="name" placeholder="Enter name" name="tag_name">
@@ -49,11 +58,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-{{--                    {{ $course->links() }}--}}
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
-`

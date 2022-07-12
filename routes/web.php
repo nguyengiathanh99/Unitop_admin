@@ -48,11 +48,9 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function (){
 	Route::get('/role/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
 });
 //Member
-    Route::get('/member',[MemberController::class, 'index'])->name('member.index');
+    Route::get('/member/index',[MemberController::class, 'index'])->name('member.index');
     Route::get('/member/create',[MemberController::class, 'create'])->name('member.create');
     Route::post('/member/store', [MemberController::class, 'store'])->name('member.store');
-    Route::get('/member/edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
-    Route::put('/member/update/{id}', [MemberController::class, 'update'])->name('member.update');
     Route::get('/member/destroy/{id}', [MemberController::class, 'destroy'])->name('member.destroy');
 
 // Course

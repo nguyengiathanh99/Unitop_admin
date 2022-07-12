@@ -2,7 +2,7 @@
 
 @section('icon_page', 'dashboard')
 
-@section('title', 'Dashboard ')
+@section('title', 'Tổng quan ')
 
 {{--@section('menu_pagina')--}}
 
@@ -14,7 +14,7 @@
                 <div class="inner">
                     <h3>{{ $statistical['user'] ?? 0 }}</h3>
 
-                    <p>User</p>
+                    <p>Người dùng</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person"></i>
@@ -27,7 +27,7 @@
                 <div class="inner">
                     <h3>{{ $statistical['course'] ?? 0 }}</h3>
 
-                    <p>Course</p>
+                    <p>Khóa học</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -41,7 +41,7 @@
                 <div class="inner">
                     <h3>{{ $statistical['userCourse'] ?? 0 }}</h3>
 
-                    <p>User course</p>
+                    <p>Số lượng người dùng tham gia khóa học</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>

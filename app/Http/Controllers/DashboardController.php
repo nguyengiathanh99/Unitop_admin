@@ -29,7 +29,7 @@ class DashboardController extends Controller
         $groupCourses = Course::query()->get();
         $courseUsers = UserCourse::query()->get();
         $userCourseIds = $groupCourses->pluck('id')->toArray();
-        $countUser = User::query()->count();
+        $countUser = Member::query()->count();
         $countCourse = $groupCourses->count();
         $countUserCourse = $courseUsers->whereIn('course_id', $userCourseIds)->count();
 
@@ -61,5 +61,4 @@ class DashboardController extends Controller
     {
         return 'rgb(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ')';
     }
-
 }

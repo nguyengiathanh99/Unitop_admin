@@ -24,4 +24,12 @@ class Member extends Model
         'address',
         'google_id',
     ];
+
+    public function scopeSearch($query, $data) {
+        if (isset($data['keyword'])) {
+            $query->where('name','LIKE', '%' .$data['keyword']. '%');
+        }
+        return $query;
+    }
 }
+

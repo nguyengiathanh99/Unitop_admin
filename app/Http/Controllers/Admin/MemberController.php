@@ -8,14 +8,22 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        dd(1);
+        $members = Member::search($request->all())->paginate(10);
+        return view('members.index', compact('members', 'request'));
     }
 
     public function create()
     {
         return view('members.create');
+    }
+
+    public function destroy($id)
+    {
+        $member = Member::find($id);
+        $member->delete();
+        return redirect()->back();
     }
 
     public function store(Request $request)
@@ -37,8 +45,14 @@ class MemberController extends Controller
         }
         $member = Member::create($data);
         if ($member) {
-            return redirect()->route('member.index');
+            return redirect()->route('members.index');
         }
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $member = Member::find($id);
+        return view('members.edit', compact('member'));
     }
 }
