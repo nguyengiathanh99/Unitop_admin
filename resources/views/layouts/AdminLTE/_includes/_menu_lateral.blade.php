@@ -35,13 +35,13 @@
                     <i class="fa fa-book"></i><span> Khóa học</span>
                 </a>
                 <a href="{{ route('lesson.home') }}" title="Lessons">
-                    <i class="fa fa-book"></i><span> Bài học</span>
+                    <i class="fa fa-list-alt"></i><span> Bài học</span>
                 </a>
                 <a href="{{ route('document.index') }}" title="Documents">
                     <i class="fa fa-file"></i><span> Tài liệu</span>
                 </a>
                 <a href="{{ route('review.index') }}" title="Documents">
-                    <i class="fa fa-file"></i><span>Nhận xét</span>
+                    <i class="fa fa-comments"></i><span>Nhận xét</span>
                 </a>
                 <a href="{{ route('tag.index') }}" title="Tags">
                     <i class="fa fa-tags"></i><span> Nhãn dán</span>

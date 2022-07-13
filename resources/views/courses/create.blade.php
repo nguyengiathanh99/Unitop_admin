@@ -7,7 +7,7 @@
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('course.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Khóa học
+            <i class="fa fa-book"></i> Khóa học
         </a>
     </li>
 @endsection
@@ -18,7 +18,7 @@
         <div class="box-body">
             <div class="form-group" {{ $errors->has('course_name') ? 'has-error' : '' }}>
                 <label for="name">Tên khóa học</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên khóa học" name="name">
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên khóa học" name="course_name" value="{{ old('course_name') }}">
                 @if($errors->has('course_name'))
                     <span class="help-block">
                         <strong style="color: red">{{ $errors->first('course_name') }}</strong>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label>Ghi chú</label>
-                <textarea class="form-control" rows="3" placeholder="Enter ..." name="course_desc"></textarea>
+                <textarea class="form-control" rows="3" placeholder="Nhập..." name="course_desc">{{ old('course_desc') }}</textarea>
             </div>
         </div>
         <div class="col-lg-12">

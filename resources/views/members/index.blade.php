@@ -13,6 +13,11 @@
 @endsection
 
 @section('content')
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <form action="{{ route('member.index') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword" placeholder="Tìm kiếm...." class="input-search">
@@ -28,7 +33,6 @@
                             <thead>
                             <tr>
                                 <th class="text-center">Tên</th>
-{{--                                <th class="text-center">Image</th>--}}
                                 <th class="text-center">Email</th>
                                 <th class="text-center">Số điện thoại</th>
                                 <th class="text-center">Ngày sinh</th>
@@ -43,7 +47,6 @@
                                 @foreach ($members as $member)
                                     <tr>
                                         <td class="text-center">{{ $member->name }}</td>
-{{--                                        <td class="text-center"><img src="{{ asset($member->image) }}" alt="" height="80px"></td>--}}
                                         <td class="text-center">{{ $member->email }}</td>
                                         <td class="text-center">{{ $member->phone }}</td>
                                         <td class="text-center">{{ $member->date_of_birth }}</td>

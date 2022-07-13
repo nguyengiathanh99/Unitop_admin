@@ -13,6 +13,11 @@
 @endsection
 
 @section('content')
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <form action="{{ route('course.index') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
@@ -44,7 +49,7 @@
                                             <td class="text-center">{{ $course->created_at }}</td>
                                             <td class="text-center">
                                                 <a class="btn btn-warning  btn-xs" href="{{ route('course.edit', $course->id) }}"><i class="fa fa-pencil"></i></a>
-                                                <a class="btn btn-danger  btn-xs" href="{{ route('course.destroy', $course->id) }}" data-toggle="modal" data-target=""><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-danger  btn-xs" href="{{ route('course.destroy', $course->id) }}" data-toggle="modal" data-target="" onclick="return confirm('Bạn có muốn xóa?')"><i class="fa fa-trash"></i></a>
                                            </td>
                                         </tr>
                                     @endforeach

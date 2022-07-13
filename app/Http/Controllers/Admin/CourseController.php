@@ -35,7 +35,7 @@ class CourseController extends Controller
         }
         $course = Course::create($data);
         if ($course) {
-            return redirect()->route('course.index');
+            return redirect()->route('course.index')->with('success', 'Thêm bài học thành công !');
         }
         return redirect()->back();
     }
@@ -60,7 +60,7 @@ class CourseController extends Controller
         }
         $course = Course::where('id', $id)->update($data);
         if ($course) {
-            return redirect()->route('course.index');
+            return redirect()->route('course.index')->with('success', 'Cập nhật khóa học thành công !');
         }
         return redirect()->back();
     }

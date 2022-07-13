@@ -1,18 +1,23 @@
 @extends('layouts.AdminLTE.index')
 
-@section('icon_page', 'Lesson')
+@section('icon_page', 'Bài học')
 
 @section('title', 'Bài học')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('lesson.create') }}" class="link_menu_page">
-            <i class="fa fa-plus"></i> Thêm
+            <i class="fa fa-plus"></i> Thêm mới
         </a>
     </li>
 @endsection
 
 @section('content')
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <form action="{{ route('lesson.home') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
@@ -46,7 +51,7 @@
                                         <td class="text-center">{{ $lesson->created_at }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-warning  btn-xs" href="{{ route('lesson.edit', $lesson->id) }}"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger  btn-xs" href="{{ route('lesson.destroy', $lesson->id) }}" data-toggle="modal" data-target=""><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-danger  btn-xs" href="{{ route('lesson.destroy', $lesson->id) }}" data-toggle="modal" data-target="" onclick="return confirm('Bạn có muốn xóa?')"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

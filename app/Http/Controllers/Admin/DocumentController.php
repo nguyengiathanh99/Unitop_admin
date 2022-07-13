@@ -28,7 +28,6 @@ class DocumentController extends Controller
             'lesson_id' => $request->state,
             'name' => $request->document_name,
             'title' => $request->document_title,
-//            'file_path' => $request->document_file_path,
             'image' => $request->lesson_image,
         ];
         if($request->file('lesson_image')){
@@ -46,7 +45,7 @@ class DocumentController extends Controller
         }
         if (!empty($data)) {
             Document::create($data);
-            return redirect()->route('document.index');
+            return redirect()->route('document.index')->with('success', 'Thêm mới tài liệu thành công !');
         }
         return redirect()->back();
     }
@@ -64,7 +63,6 @@ class DocumentController extends Controller
             'lesson_id' => $request->lesson_id,
             'name' => $request->name,
             'title' => $request->title,
-//            'file_path' => $request->file_path,
         ];
         if($request->file('myFile')){
             $file= $request->file('myFile');
@@ -80,7 +78,7 @@ class DocumentController extends Controller
         }
         $doc = Document::where('id',$id)->update($data);
         if ($doc) {
-            return redirect()->route('document.index');
+            return redirect()->route('document.index')->with('success', 'Cập nhật tài liệu thành công !');
         }
         return redirect()->back();
     }

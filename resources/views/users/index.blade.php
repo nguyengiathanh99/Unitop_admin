@@ -11,11 +11,11 @@
 			<i class="fa fa-plus"></i> Thêm
 		</a>
 	</li>
-	<li role="presentation">
-		<a href="{{ route('role') }}" class="link_menu_page">
-			<i class="fa fa-unlock-alt"></i> Phân quyền
-		</a>
-	</li>
+{{--	<li role="presentation">--}}
+{{--		<a href="{{ route('role') }}" class="link_menu_page">--}}
+{{--			<i class="fa fa-unlock-alt"></i> Phân quyền--}}
+{{--		</a>--}}
+{{--	</li>--}}
 
 @endsection
 

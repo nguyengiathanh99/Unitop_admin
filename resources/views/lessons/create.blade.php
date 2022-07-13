@@ -7,7 +7,7 @@
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('lesson.home') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Bài học
+            <i class="fa fa-list-alt"></i> Bài học
         </a>
     </li>
 @endsection

@@ -32,7 +32,7 @@ class LessonController extends Controller
         ];
         if (!empty($data)) {
             Lesson::create($data);
-            return redirect()->route('lesson.home');
+            return redirect()->route('lesson.home')->with('success', 'Thêm bài học thành công !');
         }
         return redirect()->back();
     }
@@ -54,7 +54,7 @@ class LessonController extends Controller
         ];
         $lesson = Lesson::where('id',$id)->update($data);
         if ($lesson) {
-            return redirect()->route('lesson.home');
+            return redirect()->route('lesson.home')->with('success','Cập nhật bài học thành công !');
         }
         return redirect()->back();
     }

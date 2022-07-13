@@ -38,15 +38,9 @@ class MemberController extends Controller
             'address' => $request->address,
             'description' => $request->desc,
         ];
-//        if($request->file('member_image')){
-//            $file= $request->file('member_image');
-//            $filename= date('YmdHi').$file->getClientOriginalName();
-//            $file-> move(public_path('member/image'), $filename);
-//            $data['image'] = 'member/image/'.$filename;
-//        }
         $member = Member::create($data);
         if ($member) {
-            return redirect()->route('member.index');
+            return redirect()->route('member.index')->with('success', 'Thêm học viên thành công!');
         }
         return redirect()->back();
     }
