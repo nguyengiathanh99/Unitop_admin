@@ -2,12 +2,12 @@
 
 @section('icon_page', 'plus')
 
-@section('title', 'Add Tag')
+@section('title', 'Khởi tạo nhãn')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('tag.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Tag
+            <i class="fa fa-user"></i> Nhãn
         </a>
     </li>
 @endsection
@@ -19,38 +19,21 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Course</th>
-                                <th>Name</th>
-                                <th>Link</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                            </thead>
                             <tbody>
                                 <form action="{{ route('tag.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Course_id</label>
-                                            <select class="js-example-basic-single" name="state" style="width: 100%">
-                                                @foreach($courses as $course)
-                                                    <option  value="{{ $course->id }}">{{ $course->name }}</option>
-                                                @endforeach>
-                                            </select>
+                                            <label for="name">Tên</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Nhập tên..." name="tag_name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="tag_name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Link</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter link" name="tag_link">
+                                            <label>Đường dẫn</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Nhập đường dẫn..." name="tag_link">
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-plus"></i> Khởi tạo</button>
                                     </div>
                                 </form>
                             </tbody>

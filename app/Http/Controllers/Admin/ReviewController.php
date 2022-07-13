@@ -13,9 +13,8 @@ class ReviewController extends Controller
         $search = $request->get('keyword');
         $reviews = Review::query()
             ->with(['course', 'user']);
-
         if (!empty($search)) {
-            $reviews = $reviews->where('comment', '%' . $search . '%');
+            $reviews = $reviews->where('comment', 'LIKE', '%' . $search . '%');
         }
 
         $reviews = $reviews->orderBy('id', 'desc')->paginate(10);

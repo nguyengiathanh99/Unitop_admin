@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CourseRequest;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class CourseController extends Controller
         return view('courses.create');
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $data = [
             'name' => $request->course_name,

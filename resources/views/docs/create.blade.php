@@ -2,12 +2,12 @@
 
 @section('icon_page', 'plus')
 
-@section('title', 'Add Document')
+@section('title', 'Thêm tài liệu')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('document.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Document
+            <i class="fa fa-user"></i> Tài liệu
         </a>
     </li>
 @endsection
@@ -19,17 +19,6 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Lesson_id</th>
-                                <th>Name</th>
-                                <th>Title</th>
-                                <th>Image</th>
-                                <th class="text-center">File Path</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                            </thead>
                             <tbody>
                                 <form action="{{ route('document.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
@@ -42,26 +31,46 @@
                                                 @endforeach>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter title" name="document_name">
+                                        <div class="form-group" {{ $errors->has('document_name') ? 'has-error' : '' }}>
+                                            <label for="name">Tên tài liệu</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Tên tài liệu..." name="document_name">
+                                            @if($errors->has('document_name'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('document_name') }}</strong>
+                                                 </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">Title</label>
-                                            <input type="text" class="form-control" id="title" placeholder="Enter title" name="document_title">
+                                        <div class="form-group" {{ $errors->has('document_title') ? 'has-error' : '' }}>
+                                            <label for="name">Tiêu đề</label>
+                                            <input type="text" class="form-control" id="title" placeholder="Tên tiêu đề..." name="document_title">
+                                            @if($errors->has('document_title'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('document_title') }}</strong>
+                                                 </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group">
-                                            <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+                                        <div class="form-group" {{ $errors->has('lesson_image') ? 'has-error' : '' }}>
+                                            <p><label for="file" style="cursor: pointer;">Hình ảnh</label></p>
                                             <p><input type="file"  accept="image/*" name="lesson_image" id="file"  onchange="loadFile(event)"></p>
                                             <p><img id="output" width="200" /></p>
+                                            @if($errors->has('lesson_image'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('lesson_image') }}</strong>
+                                                 </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group">
-                                            <label for="video">File Video</label>
-                                            <input type="file" class="form-control" id="video" placeholder="Enter file video" name="document_file_path">
+                                        <div class="form-group" {{ $errors->has('document_file_path') ? 'has-error' : '' }}>
+                                            <label for="video">Video bài giảng</label>
+                                            <input type="file" class="form-control" id="video" name="document_file_path">
+                                            @if($errors->has('document_file_path'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('document_file_path') }}</strong>
+                                                 </span>
+                                            @endif
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-plus"></i> Khởi tạo</button>
                                     </div>
                                 </form>
                             </tbody>
@@ -69,7 +78,6 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-{{--                    {{ $course->links() }}--}}
                 </div>
             </div>
         </div>

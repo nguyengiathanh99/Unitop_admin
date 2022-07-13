@@ -2,12 +2,12 @@
 
 @section('icon_page', 'course')
 
-@section('title', 'Course')
+@section('title', 'Khóa học')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('course.create') }}" class="link_menu_page">
-            <i class="fa fa-plus"></i> Add
+            <i class="fa fa-plus"></i> Thêm
         </a>
     </li>
 @endsection
@@ -27,11 +27,11 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Image</th>
-                                <th class="text-center">Description</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
+                                <th class="text-center">Tên khóa học</th>
+                                <th class="text-center">Hình ảnh</th>
+                                <th class="text-center">Ghi chú</th>
+                                <th class="text-center">Ngày tạo</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -60,4 +60,3 @@
         </div>
     </div>
 @endsection
-

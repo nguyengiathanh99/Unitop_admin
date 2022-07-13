@@ -2,13 +2,13 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Edit Course')
+@section('title', 'Chỉnh sửa khóa học')
 
 @section('menu_pagina')
 
     <li role="presentation">
         <a href="{{ route('course.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Courses
+            <i class="fa fa-user"></i> Khóa học
         </a>
     </li>
 
@@ -25,8 +25,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                        <label for="nome">Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Name" required="" autofocus value="{{$course->name}}">
+                                        <label for="nome">Tên khóa học</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Tên khóa học" required="" autofocus value="{{$course->name}}">
                                         @if($errors->has('name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
-                                        <label for="myFile" style="cursor: pointer">Image</label>
+                                        <label for="myFile" style="cursor: pointer">Hình ảnh</label>
                                         <div class="course-img">
                                             <img src="{{ asset($course->image) }}" alt="{{ $course->image }}" class="img-thumbnail" id="image">
                                             <label for="myFile" class="fileImage"><i class="fa fa-camera"></i></label>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                                        <label for="course_desc">Description</label>
+                                        <label for="course_desc">Ghi chú</label>
                                         <textarea class="form-control" id="course_desc" rows="3" name="description">{{ $course->description }}</textarea>
                                         @if($errors->has('description'))
                                             <span class="help-block">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i>Save</button>
+                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Lưu</button>
                                 </div>
                             </div>
                         </form>

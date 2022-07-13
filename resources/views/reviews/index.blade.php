@@ -2,7 +2,7 @@
 
 @section('icon_page', 'Review')
 
-@section('title', 'Review')
+@section('title', 'Nhận xét')
 
 @section('layout_css')
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
@@ -11,6 +11,12 @@
 @endsection
 
 @section('content')
+    <form action="{{ route('review.index') }}" method="get">
+        <div class="search">
+            <input type="text" value="" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
+            <button class="">Tìm kiếm</button>
+        </div>
+    </form>
     <div class="box box-primary">
         <div class="box-body">
             <div class="row">

@@ -2,12 +2,12 @@
 
 @section('icon_page', 'Document')
 
-@section('title', 'Document')
+@section('title', 'Tài liệu')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('document.create') }}" class="link_menu_page">
-            <i class="fa fa-plus"></i> Add
+            <i class="fa fa-plus"></i> Thêm
         </a>
     </li>
 @endsection
@@ -28,12 +28,12 @@
                             <thead>
                                 <tr>
                                     <th>Lesson_id</th>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th class="text-center">File Path</th>
-                                    <th class="text-center">Created</th>
-                                    <th class="text-center">Actions</th>
+                                    <th>Tên tài liệu</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Hình ảnh</th>
+                                    <th class="text-center">Đường dẫn</th>
+                                    <th class="text-center">Ngày tạo</th>
+                                    <th class="text-center">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>

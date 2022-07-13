@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LessonRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class LessonController extends Controller
         return view('lessons.create', compact('courses'));
     }
 
-    public function store(Request $request)
+    public function store(LessonRequest $request)
     {
         $data = [
             'course_id' => $request->state,

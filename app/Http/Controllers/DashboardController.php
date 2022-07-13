@@ -51,9 +51,9 @@ class DashboardController extends Controller
                 $chartCourse['data']['courses'][] = $count ?? 0;
                 $chartCourse['data']['review'][] = $countReview ?? 0;
                 $chartCourse['backgroundColor']['courses'][] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 0.2)';
-                $chartCourse['backgroundColor']['review'][] = 'rgba('.rand(50,255).', '.rand(50,255).', '.rand(50,255).', 0.2)';
+                $chartCourse['backgroundColor']['review'][] = 'rgba('.rand(100,255).', '.rand(100,255).', '.rand(100,255).', 0.2)';
                 $chartCourse['borderColor']['courses'][] = 'rgb(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ')';
-                $chartCourse['borderColor']['review'][] = 'rgb(' . rand(50, 255) . ',' . rand(50, 255) . ',' . rand(50, 255) . ')';
+                $chartCourse['borderColor']['review'][] = 'rgb(' . rand(100, 255) . ',' . rand(100, 255) . ',' . rand(100, 255) . ')';
             }
         }
 

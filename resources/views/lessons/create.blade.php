@@ -2,12 +2,12 @@
 
 @section('icon_page', 'plus')
 
-@section('title', 'Add Lesson')
+@section('title', 'Thêm bài học')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('lesson.home') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Lesson
+            <i class="fa fa-user"></i> Bài học
         </a>
     </li>
 @endsection
@@ -19,16 +19,6 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>Course_id</th>
-                                <th>Name</th>
-                                <th>Time</th>
-                                <th>Desciption</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                            </thead>
                             <tbody>
                                 <form action="{{ route('lesson.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
@@ -41,33 +31,38 @@
                                                 @endforeach>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="lesson_name">
+                                        <div class="form-group" {{ $errors->has('lesson_name') ? 'has-error' : '' }}>
+                                            <label for="name">Tên bài học</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Nhập tên bài học" name="lesson_name" value="{{ old('lesson_name') }}">
+                                            @if($errors->has('lesson_name'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('lesson_name') }}</strong>
+                                                 </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group" {{ $errors->has('lesson_time') ? 'has-error' : '' }}>
+                                            <label>Thời gian</label>
+                                            <input type="number" class="form-control" id="time" placeholder="Nhập thời gian" name="lesson_time" value="{{ old('lesson_time') }}">
+                                            @if($errors->has('lesson_time'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('lesson_time') }}</strong>
+                                                 </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Time</label>
-                                            <input type="number" class="form-control" id="time" placeholder="Enter time" name="lesson_time">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..." name="lesson_desc"></textarea>
+                                            <label>Ghi chú</label>
+                                            <textarea class="form-control" rows="3" placeholder="Nhập...." name="lesson_desc"></textarea>
                                         </div>
                                     </div>
-                                    <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-plus"></i> Khởi tạo</button>
                                     </div>
                                 </form>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="col-md-12 text-center">
-{{--                    {{ $course->links() }}--}}
-                </div>
             </div>
         </div>
     </div>
-
 @endsection
-

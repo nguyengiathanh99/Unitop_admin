@@ -27,18 +27,16 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Course_id</th>
-                                <th>Name</th>
-                                <th>Link</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
+                                <th>Tên</th>
+                                <th>Đường dẫn</th>
+                                <th class="text-center">Ngày tạo</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
                             @if (!empty($tags))
                                 @foreach ($tags as $tag)
                                     <tr>
-                                        <td>{{ $tag->course_id }}</td>
                                         <td>{{ $tag->name }}</td>
                                         <td>{{ $tag->link }}</td>
                                         <td class="text-center">{{ $tag->created_at }}</td>

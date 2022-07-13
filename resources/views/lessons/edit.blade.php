@@ -2,13 +2,13 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Edit Lesson')
+@section('title', 'Cập nhật bài học')
 
 @section('menu_pagina')
 
     <li role="presentation">
         <a href="{{ route('lesson.home') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Lesson
+            <i class="fa fa-user"></i> Bài học
         </a>
     </li>
 
@@ -39,7 +39,7 @@
                             </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                        <label for="nome">Name</label>
+                                        <label for="nome">Tên bài học</label>
                                         <input type="text" name="name" class="form-control" placeholder="Name" required="" autofocus value="{{$lesson->name}}">
                                         @if($errors->has('name'))
                                             <span class="help-block">
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('time') ? 'has-error' : '' }}">
-                                        <label for="nome">Time</label>
+                                        <label for="nome">Thời gian</label>
                                         <input type="number" name="time" class="form-control" placeholder="Time" required="" autofocus value="{{$lesson->time}}">
                                         @if($errors->has('name'))
                                             <span class="help-block">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                                        <label for="course_desc">Description</label>
+                                        <label for="course_desc">Ghi chú</label>
                                         <textarea class="form-control" id="course_desc" rows="3"
                                                   name="description">{{ $lesson->description }}</textarea>
                                         @if($errors->has('description'))
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn btn-primary pull-right"><i
-                                                class="fa fa-fw fa-save"></i>Save
+                                                class="fa fa-fw fa-save"></i> Lưu
                                     </button>
                                 </div>
                             </div>

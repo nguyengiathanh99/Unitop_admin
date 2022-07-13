@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DocumentRequest;
 use App\Models\Document;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class DocumentController extends Controller
         return view('docs.create', compact('lessons'));
     }
 
-    public function store(Request $request)
+    public function store(DocumentRequest $request)
     {
         $data = [
             'lesson_id' => $request->state,

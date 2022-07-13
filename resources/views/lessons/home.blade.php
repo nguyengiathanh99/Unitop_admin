@@ -2,12 +2,12 @@
 
 @section('icon_page', 'Lesson')
 
-@section('title', 'Lesson')
+@section('title', 'Bài học')
 
 @section('menu_pagina')
     <li role="presentation">
         <a href="{{ route('lesson.create') }}" class="link_menu_page">
-            <i class="fa fa-plus"></i> Add
+            <i class="fa fa-plus"></i> Thêm
         </a>
     </li>
 @endsection
@@ -28,11 +28,11 @@
                             <thead>
                             <tr>
                                 <th>Course_id</th>
-                                <th>Name</th>
-                                <th>Time</th>
-                                <th class="text-center">Desciption</th>
-                                <th class="text-center">Created</th>
-                                <th class="text-center">Actions</th>
+                                <th>Tên bài học</th>
+                                <th>Thời gian</th>
+                                <th class="text-center">Ghi chú</th>
+                                <th class="text-center">Ngày tạo</th>
+                                <th class="text-center">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>

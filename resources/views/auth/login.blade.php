@@ -1,4 +1,4 @@
-@section('title', 'Login')
+@section('title', 'Đăng nhập')
 @section('layout_css')
     <style>
         #box-login-personalize{
@@ -23,11 +23,11 @@
                     <img src="{{ asset(\App\Models\Config::find(1)->caminho_img_login) }}" width="{{ \App\Models\Config::find(1)->tamanho_img_login }}%"/>
                     <br/>
                 @endif
-
-                {!! \App\Models\Config::find(1)->titulo_login !!}
+                    <a href="#" ><b>Unitop</b> Manager</a>
+{{--                {!! \App\Models\Config::find(1)->titulo_login !!}--}}
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Đăng nhập để bắt đầu</p>
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group has-feedback">
@@ -58,7 +58,7 @@
                           </div>
                         </div>-->
                         <div class="col-xs-12">
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                         </div>
                         <br/><br/><br/>
                         <!--<div class="col-xs-12">

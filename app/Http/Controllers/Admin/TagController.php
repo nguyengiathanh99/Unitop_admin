@@ -18,8 +18,7 @@ class TagController extends Controller
 
     public function create()
     {
-        $courses = Course::select('id','name')->get();
-        return view('tags.create', compact('courses'));
+        return view('tags.create');
     }
 
     public function store(Request $request)
@@ -38,7 +37,6 @@ class TagController extends Controller
     public function edit($id)
     {
         $tag = Tag::find($id);
-        $courses = $tag->course->get();
         return view('tags.edit', compact('tag'));
     }
 

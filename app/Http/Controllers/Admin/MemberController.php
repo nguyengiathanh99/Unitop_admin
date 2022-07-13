@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MemberRequest;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class MemberController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request)
+    public function store(MemberRequest $request)
     {
         $data = [
             'name' => $request->name,
@@ -37,15 +38,15 @@ class MemberController extends Controller
             'address' => $request->address,
             'description' => $request->desc,
         ];
-        if($request->file('member_image')){
-            $file= $request->file('member_image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('member/image'), $filename);
-            $data['image'] = 'member/image/'.$filename;
-        }
+//        if($request->file('member_image')){
+//            $file= $request->file('member_image');
+//            $filename= date('YmdHi').$file->getClientOriginalName();
+//            $file-> move(public_path('member/image'), $filename);
+//            $data['image'] = 'member/image/'.$filename;
+//        }
         $member = Member::create($data);
         if ($member) {
-            return redirect()->route('members.index');
+            return redirect()->route('member.index');
         }
         return redirect()->back();
     }

@@ -85,7 +85,7 @@ Route::get('/document/edit/{id}', [DocumentController::class, 'edit'])->name('do
 Route::put('/document/update/{id}', [DocumentController::class, 'update'])->name('document.update');
 Route::get('/document/destroy/{id}', [DocumentController::class, 'destroy'])->name('document.destroy');
 
-
+//Review
 Route::group(['prefix' => 'reviews'], function () {
     Route::get('', [ReviewController::class, 'index'])->name('review.index');
     Route::get('{id}/status', [ReviewController::class, 'changeStatus'])->name('review.change-status');

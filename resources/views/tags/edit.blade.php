@@ -2,13 +2,13 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Edit Tag')
+@section('title', 'Chỉnh sửa nhãn')
 
 @section('menu_pagina')
 
     <li role="presentation">
         <a href="{{ route('tag.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Tag
+            <i class="fa fa-user"></i> Nhãn
         </a>
     </li>
 
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                    <label for="nome">Name</label>
+                                    <label for="nome">Tên</label>
                                     <input type="text" name="name" class="form-control" maxlength="30" minlength="4"
                                            placeholder="Name" required="" autofocus value="{{$tag->name}}">
                                     @if($errors->has('name'))
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('link') ? 'has-error' : '' }}">
-                                    <label for="link">Link</label>
+                                    <label for="link">Đường dẫn</label>
                                     <input type="text" name="link" id="link" class="form-control" placeholder="Link"
                                            required="" autofocus value="{{$tag->link}}">
                                     @if($errors->has('link'))
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit" class="btn btn-primary pull-right"><i
-                                            class="fa fa-fw fa-save"></i>Save
+                                            class="fa fa-fw fa-save"></i> Lưu
                                 </button>
                             </div>
                         </div>

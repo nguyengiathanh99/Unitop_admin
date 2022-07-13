@@ -25,10 +25,11 @@ class ConfigTableSeeder extends Seeder
             'img_login'  => 'T', // 'T' or 'F'
             'caminho_img_login'  => 'img/config/logo.png', //String -> defaut: 'img/config/logo.png'
             'tamanho_img_login'  => '40', // Integer
-            'titulo_login'  => '<a href="#" ><b>App</b> Name</a>', //String
+            'titulo_login'  => '<a href="#" ><b>Unitop</b> Manager</a>', //String
             'layout'  => 'fixed', //String -> defaut: 'fixed'
             'skin'  => 'blue', //String -> defaut: 'blue'
             'favicon'  => 'img/config/favicon.png', //String
+            'test' => 'Unitop Manager'
         ]);
     }
 }

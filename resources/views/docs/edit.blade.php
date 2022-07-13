@@ -2,13 +2,13 @@
 
 @section('icon_page', 'pencil')
 
-@section('title', 'Edit Document')
+@section('title', 'Cập nhật tài liệu')
 
 @section('menu_pagina')
 
     <li role="presentation">
         <a href="{{ route('document.index') }}" class="link_menu_page">
-            <i class="fa fa-user"></i> Document
+            <i class="fa fa-user"></i> Tài liệu
         </a>
     </li>
 
@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                    <label for="nome">Name</label>
+                                    <label for="nome">Tên tài liệu</label>
                                     <input type="text" name="name" class="form-control" placeholder="Name" required=""
                                            autofocus value="{{$doc->name}}">
                                     @if($errors->has('name'))
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-                                    <label for="nome">Title</label>
+                                    <label for="nome">Tiêu đề</label>
                                     <input type="text" name="title" class="form-control" placeholder="Title" required=""
                                            autofocus value="{{$doc->title}}">
                                     @if($errors->has('name'))
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                                    <label for="nome">Image</label>
+                                    <label for="nome">Hình ảnh</label>
                                     <div class="course-img">
                                         <img src="{{ asset($doc->image) }}" alt="{{ $doc->image }}"
                                              class="img-thumbnail" id="image">
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group {{ $errors->has('file_video') ? 'has-error' : '' }}">
-                                    <label for="file_path">File Video</label>
+                                    <label for="file_path">Video bài giảng</label>
                                     <input type="file" name="file_path" class="form-control" id="file_path"
                                            placeholder="File_path" value="{{ $doc->file_path }}">
                                     @if($errors->has('file_path'))
@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit" class="btn btn-primary pull-right"><i
-                                            class="fa fa-fw fa-save"></i>Save
+                                            class="fa fa-fw fa-save"></i> Lưu
                                 </button>
                             </div>
                         </div>
