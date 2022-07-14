@@ -21,7 +21,7 @@
     <form action="{{ route('document.index') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
-            <button class="">Tìm kiếm</button>
+            <button class="btn-search">Tìm kiếm</button>
         </div>
     </form>
     <div class="box box-primary">
@@ -32,10 +32,10 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Lesson_id</th>
-                                    <th>Tên tài liệu</th>
-                                    <th>Tiêu đề</th>
-                                    <th>Hình ảnh</th>
+                                    <th class="text-center">Lesson_id</th>
+                                    <th class="text-center">Tên tài liệu</th>
+                                    <th class="text-center">Tiêu đề</th>
+                                    <th class="text-center">Hình ảnh</th>
                                     <th class="text-center">Đường dẫn</th>
                                     <th class="text-center">Ngày tạo</th>
                                     <th class="text-center">Hành động</th>

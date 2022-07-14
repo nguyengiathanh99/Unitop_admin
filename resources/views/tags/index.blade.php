@@ -16,7 +16,7 @@
     <form action="{{ route('tag.index') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
-            <button class="">Tìm kiếm</button>
+            <button class="btn-search">Tìm kiếm</button>
         </div>
     </form>
     <div class="box box-primary">
@@ -27,8 +27,8 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Tên</th>
-                                <th>Đường dẫn</th>
+                                <th class="text-center">Tên</th>
+                                <th class="text-center">Đường dẫn</th>
                                 <th class="text-center">Ngày tạo</th>
                                 <th class="text-center">Hành động</th>
                             </tr>
@@ -37,8 +37,8 @@
                             @if (!empty($tags))
                                 @foreach ($tags as $tag)
                                     <tr>
-                                        <td>{{ $tag->name }}</td>
-                                        <td>{{ $tag->link }}</td>
+                                        <td class="text-center">{{ $tag->name }}</td>
+                                        <td class="text-center">{{ $tag->link }}</td>
                                         <td class="text-center">{{ $tag->created_at }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-warning  btn-xs" href="{{ route('tag.edit', $tag->id) }}"><i class="fa fa-pencil"></i></a>

@@ -14,7 +14,7 @@
     <form action="{{ route('review.index') }}" method="get">
         <div class="search">
             <input type="text" value="" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
-            <button class="">Tìm kiếm</button>
+            <button class="btn-search">Tìm kiếm</button>
         </div>
     </form>
     <div class="box box-primary">
@@ -25,11 +25,11 @@
                         <table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Học viên</th>
-                                <th>Khoá học</th>
-                                <th>Bình luận</th>
-                                <th>Đánh giá</th>
-                                <th>Trạng thái</th>
+                                <th class="text-center">Học viên</th>
+                                <th class="text-center">Khoá học</th>
+                                <th class="text-center">Bình luận</th>
+                                <th class="text-center">Đánh giá</th>
+                                <th class="text-center">Trạng thái</th>
                                 <th class="text-center">Created</th>
                                 <th class="text-center">Actions</th>
                             </tr>
@@ -38,10 +38,10 @@
                             @if (!empty($reviews))
                                 @foreach ($reviews as $review)
                                     <tr>
-                                        <td>{{ !empty($review->user) ? $review->user->name : '' }}</td>
-                                        <td>{{ !empty($review->course) ? $review->course->name : '' }}</td>
-                                        <td>{{ $review->comment }}</td>
-                                        <td>{{ $review->vote }}</td>
+                                        <td class="text-center">{{ !empty($review->user) ? $review->user->name : '' }}</td>
+                                        <td class="text-center">{{ !empty($review->course) ? $review->course->name : '' }}</td>
+                                        <td class="text-center">{{ $review->comment }}</td>
+                                        <td class="text-center">{{ $review->vote }}</td>
                                         <td class="text-center">
                                             @if($review->status == true)
                                                 <span class="label label-success">Active</span>

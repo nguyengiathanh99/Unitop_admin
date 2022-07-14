@@ -21,7 +21,7 @@
     <form action="{{ route('member.index') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword" placeholder="Tìm kiếm...." class="input-search">
-            <button>Tìm kiếm</button>
+            <button class="btn-search">Tìm kiếm</button>
         </div>
     </form>
     <div class="box box-primary">

@@ -11,19 +11,13 @@
 			<i class="fa fa-plus"></i> Thêm
 		</a>
 	</li>
-{{--	<li role="presentation">--}}
-{{--		<a href="{{ route('role') }}" class="link_menu_page">--}}
-{{--			<i class="fa fa-unlock-alt"></i> Phân quyền--}}
-{{--		</a>--}}
-{{--	</li>--}}
-
 @endsection
 
 @section('content')
     <form action="{{ route('user') }}" method="get">
         <div class="search">
             <input type="text" value="{{ $request->keyword }}" name="keyword"  placeholder="Tìm kiếm..." class="input-search">
-            <button class="">Tìm kiếm</button>
+            <button class="btn-search">Tìm kiếm</button>
         </div>
     </form>
     <div class="box box-primary">
@@ -34,8 +28,8 @@
 						<table id="tabelapadrao" class="table table-condensed table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>Tên</th>
-									<th>E-mail</th>
+									<th class="text-center">Tên</th>
+									<th class="text-center">E-mail</th>
 									<th class="text-center">Trạng thái</th>
 									<th class="text-center">Đã tạo</th>
 									<th class="text-center">Hành động</th>
@@ -53,7 +47,7 @@
 						                        @endif
 												{{ $user->name }}
 											</td>
-											<td>{{ $user->email }}</td>
+											<td class="text-center">{{ $user->email }}</td>
 											<td class="text-center">
 												@if($user->active == true)
 													<span class="label label-success">Hoạt động</span>
