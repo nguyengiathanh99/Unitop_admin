@@ -19,7 +19,6 @@ class DashboardController extends Controller
         parent::__construct();
         $this->middleware('auth');
     }
-
     public function index()
     {
         $groupCourses = Course::query()->get();
@@ -29,13 +28,11 @@ class DashboardController extends Controller
         $countCourse = $groupCourses->count();
         $countUserCourse = $courseUsers->whereIn('course_id', $userCourseIds)->count();
         $reviewCourses = Review::query()->get();
-
         $statistical = [
             'user' => $countUser,
             'course' => $countCourse,
             'userCourse' => $countUserCourse,
         ];
-
         $chartCourse['labels'] = [];
         $chartCourse['data']['courses'] = [];
         $chartCourse['data']['review'] = [];
@@ -56,7 +53,6 @@ class DashboardController extends Controller
                 $chartCourse['borderColor']['review'][] = 'rgb(' . rand(100, 255) . ',' . rand(100, 255) . ',' . rand(100, 255) . ')';
             }
         }
-
         return view('home', compact('statistical', 'chartCourse'));
     }
 }

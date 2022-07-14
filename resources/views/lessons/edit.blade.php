@@ -49,6 +49,21 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
+                                    <div class="form-group {{ $errors->has('image') ? 'has-error' : '' }}">
+                                        <label for="myFile" style="cursor: pointer">Hình ảnh</label>
+                                        <div class="course-img">
+                                            <img src="{{ asset($lesson->image) }}" alt="{{ $lesson->image }}" class="img-thumbnail" id="image">
+                                            <label for="myFile" class="fileImage"><i class="fa fa-camera"></i></label>
+                                            <input type="file" id="myFile" name="image" class="inputFile">
+                                        </div>
+                                        @if($errors->has('image'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('image') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
                                     <div class="form-group {{ $errors->has('time') ? 'has-error' : '' }}">
                                         <label for="nome">Thời gian</label>
                                         <input type="number" name="time" class="form-control" placeholder="Time" required="" autofocus value="{{$lesson->time}}">

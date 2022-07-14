@@ -34,6 +34,7 @@
                             <tr>
                                 <th>Course_id</th>
                                 <th>Tên bài học</th>
+                                <th class="text-center">Hình ảnh</th>
                                 <th>Thời gian</th>
                                 <th class="text-center">Ghi chú</th>
                                 <th class="text-center">Ngày tạo</th>
@@ -46,6 +47,7 @@
                                     <tr>
                                         <td>{{ $lesson->course_id }}</td>
                                         <td>{{ $lesson->name }}</td>
+                                        <td class="text-center"><img src="{{ asset($lesson->image) }}" alt="" height="80px" ></td>
                                         <td>{{ $lesson->time }}</td>
                                         <td class="text-center">{{ $lesson->description }}</td>
                                         <td class="text-center">{{ $lesson->created_at }}</td>

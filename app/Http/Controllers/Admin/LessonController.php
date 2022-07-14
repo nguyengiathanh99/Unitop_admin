@@ -30,6 +30,12 @@ class LessonController extends Controller
             'time' => $request->lesson_time,
             'description' => $request->lesson_desc,
         ];
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('lesson/image'), $filename);
+            $data['image']= 'lesson/image/'.$filename;
+        }
         if (!empty($data)) {
             Lesson::create($data);
             return redirect()->route('lesson.home')->with('success', 'Thêm bài học thành công !');
@@ -52,6 +58,12 @@ class LessonController extends Controller
             'description' => $request->description,
             'time' => $request->time,
         ];
+        if($request->file('image')){
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('lesson/image'), $filename);
+            $data['image']= 'lesson/image/'.$filename;
+        }
         $lesson = Lesson::where('id',$id)->update($data);
         if ($lesson) {
             return redirect()->route('lesson.home')->with('success','Cập nhật bài học thành công !');

@@ -40,6 +40,16 @@
                                                  </span>
                                             @endif
                                         </div>
+                                        <div class="form-group" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                            <p><label for="file" style="cursor: pointer;">Hình ảnh</label></p>
+                                            <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"></p>
+                                            <p><img id="output" width="200"/></p>
+                                            @if($errors->has('image'))
+                                                <span class="help-block">
+                                                    <strong style="color: red">{{ $errors->first('image') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
                                         <div class="form-group" {{ $errors->has('lesson_time') ? 'has-error' : '' }}>
                                             <label>Thời gian</label>
                                             <input type="number" class="form-control" id="time" placeholder="Nhập thời gian" name="lesson_time" value="{{ old('lesson_time') }}">

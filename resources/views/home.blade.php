@@ -87,14 +87,14 @@
             data: {
                 labels: @json($chartCourse['labels']),
                 datasets: [{
-                    label: 'Courses',
+                    label: 'Khóa học',
                     data: @json($chartCourse['data']['courses']),
                     backgroundColor: @json($chartCourse['backgroundColor']['courses']),
                     borderColor: @json($chartCourse['borderColor']['courses']),
                     borderWidth: 1
                 },
                     {
-                        label: 'Review',
+                        label: 'Nhận xét',
                         data: @json($chartCourse['data']['review']),
                         backgroundColor: @json($chartCourse['backgroundColor']['review']),
                         borderColor: @json($chartCourse['borderColor']['review']),

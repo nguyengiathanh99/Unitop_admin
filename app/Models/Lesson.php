@@ -13,6 +13,7 @@ class Lesson extends Model
         'time',
         'price',
         'description',
+        'image',
     ];
     use HasFactory;
 
